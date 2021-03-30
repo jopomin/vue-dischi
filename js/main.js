@@ -3,7 +3,23 @@ BONUS: Creare una select con tutti i generi dei dischi. In base a cosa scegliamo
 BONUS 2: Ordinare i dischi per anno di uscita.*/
 
 var app = new Vue ({
-    el: '#root'
+    el: '#root',
+
+    data: {
+        albums: [],
+    },
+
+    mounted() {
+        for(let i = 0; i < 8; i++) {
+            axios
+            .get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then((result) => {
+            this.albums.push(result.data.response);
+            })
+        }
+        console.log(this.albums)
+    }
+
 
 })
 

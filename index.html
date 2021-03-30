@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -14,9 +13,26 @@
 </head>
 <body>
     <div id="root">
+        <header>
+            <img id="logo" src="img/logo-small-wg.svg" alt="Logo Spotify">
+        </header>
+        <main>
+            <div class="container">
+                <ul>
+                    <li v-for="(album, i) in albums">
+                        <img :src="album[i].poster" alt="">
+                        <h2>{{album[i].title}}</h2>
+                        <div class="descr">
+                            <p id="artist">{{album[i].author}}</p>
+                            <p id="year">{{album[i].year}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
